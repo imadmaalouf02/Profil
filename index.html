@@ -2,54 +2,1062 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0; url=templates/index.html">
-    <title>Redirection...</title>
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            margin: 0;
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            color: white;
-        }
-        .loading {
-            text-align: center;
-        }
-        .spinner {
-            width: 50px;
-            height: 50px;
-            border: 3px solid rgba(255,255,255,0.1);
-            border-top-color: #0ea5e9;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 20px;
-        }
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-        p {
-            color: #94a3b8;
-        }
-        a {
-            color: #0ea5e9;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio de Imad Maalouf - Doctorant en IA, Data Science & Digital Twin pour l'énergie solaire">
+    <meta name="keywords" content="IA, Data Science, Machine Learning, Deep Learning, Digital Twin, Solar Energy, PhD">
+    <meta name="author" content="Imad Maalouf">
+    <title>Imad Maalouf | PhD Student - AI & Data Science</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/animations.css">
 </head>
 <body>
-    <div class="loading">
-        <div class="spinner"></div>
-        <p>Chargement du portfolio...</p>
-        <p>Si la redirection ne fonctionne pas, <a href="templates/index.html">cliquez ici</a></p>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <div class="loading-text">Chargement...</div>
+        </div>
     </div>
-    <script>
-        window.location.href = 'templates/index.html';
-    </script>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <span class="logo-bracket">[</span>
+                <span class="logo-text">IM</span>
+                <span class="logo-bracket">]</span>
+            </a>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#about" class="nav-link" data-section="about">A propos</a></li>
+                <li><a href="#research" class="nav-link" data-section="research">Recherche</a></li>
+                <li><a href="#skills" class="nav-link" data-section="skills">Competences</a></li>
+                <li><a href="#experience" class="nav-link" data-section="experience">Experience</a></li>
+                <li><a href="#projects" class="nav-link" data-section="projects">Projets</a></li>
+                <li><a href="#publications" class="nav-link" data-section="publications">Publications</a></li>
+                <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
+            </ul>
+            
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-background">
+            <div class="particles-container" id="particles"></div>
+            <div class="gradient-overlay"></div>
+        </div>
+        
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge reveal-up">
+                    <span class="badge-dot"></span>
+                    <span class="badge-text">Disponible pour collaborations</span>
+                </div>
+                
+                <div class="hero-photo-wrapper reveal-up" data-delay="100">
+                    <div class="photo-ring"></div>
+                    <div class="photo-ring photo-ring-2"></div>
+                    <img src="../assets/images/photoprof.jpg" alt="Imad Maalouf" class="profile-photo">
+                </div>
+                
+                <h1 class="hero-title reveal-up" data-delay="200">
+                    <span class="title-greeting">Bonjour, je suis</span>
+                    <span class="title-name" id="typewriter">Imad Maalouf</span>
+                </h1>
+                
+                <h2 class="hero-subtitle reveal-up" data-delay="300">
+                    <span class="subtitle-role">Doctorant en IA & Data Science</span>
+                    <span class="subtitle-separator">|</span>
+                    <span class="subtitle-specialty">Digital Twin & Energie Solaire</span>
+                </h2>
+                
+                <p class="hero-description reveal-up" data-delay="400">
+                    Ingénieur d'Etat ENSAM specialise en Intelligence Artificielle, 
+                    Data Science et jumeaux numériques pour l'optimisation des systèmes 
+                    d'energie solaire. Passionne par la recherche et l'innovation.
+                </p>
+                
+                <div class="hero-stats reveal-up" data-delay="500">
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="5">0</span>
+                        <span class="stat-label">Projets IA</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="3">0</span>
+                        <span class="stat-label">Stages</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="12">0</span>
+                        <span class="stat-label">Certifications</span>
+                    </div>
+                </div>
+                
+                <div class="hero-buttons reveal-up" data-delay="600">
+                    <a href="#contact" class="btn btn-primary">
+                        <span>Me contacter</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="#projects" class="btn btn-secondary">
+                        <span>Voir mes projets</span>
+                        <i class="fas fa-code"></i>
+                    </a>
+                </div>
+                
+                <div class="social-links reveal-up" data-delay="700">
+                    <a href="mailto:imadmaalouf02@gmail.com" class="social-link" aria-label="Email" title="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/imad-maalouf" target="_blank" class="social-link" aria-label="LinkedIn" title="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://github.com/imadmaalouf02" target="_blank" class="social-link" aria-label="GitHub" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://huggingface.co/MAALOUFimad02" target="_blank" class="social-link" aria-label="HuggingFace" title="HuggingFace">
+                        <i class="fas fa-face-smile"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <span>Defiler</span>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">A propos</span>
+                <h2 class="section-title">Qui suis-je ?</h2>
+                <p class="section-subtitle">Passionne par l'IA et la recherche scientifique</p>
+            </div>
+            
+            <div class="about-grid">
+                <div class="about-card about-main reveal-left">
+                    <div class="card-icon">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h3>Parcours Academique</h3>
+                    <p>
+                        Doctorant en Intelligence Artificielle et Data Science a l'ENSAM Meknes, 
+                        je travaille sur les jumeaux numeriques (Digital Twin) pour l'optimisation 
+                        des systemes d'energie solaire. Mon travail de recherche combine machine learning, 
+                        simulation numerique et optimisation energetique.
+                    </p>
+                </div>
+                
+                <div class="about-card about-research reveal-up">
+                    <div class="card-icon">
+                        <i class="fas fa-microscope"></i>
+                    </div>
+                    <h3>Domaines de Recherche</h3>
+                    <ul class="research-list">
+                        <li><i class="fas fa-check"></i> Jumeaux numeriques (Digital Twin)</li>
+                        <li><i class="fas fa-check"></i> Optimisation de l'energie solaire</li>
+                        <li><i class="fas fa-check"></i> Large Language Models (LLM)</li>
+                        <li><i class="fas fa-check"></i> Computer Vision & Deep Learning</li>
+                        <li><i class="fas fa-check"></i> Retrieval-Augmented Generation (RAG)</li>
+                    </ul>
+                </div>
+                
+                <div class="about-card about-info reveal-right">
+                    <div class="card-icon">
+                        <i class="fas fa-info-circle"></i>
+                    </div>
+                    <h3>Informations</h3>
+                    <div class="info-grid">
+                        <div class="info-row">
+                            <span class="info-label">Localisation</span>
+                            <span class="info-value"><i class="fas fa-map-marker-alt"></i> Meknes, Maroc</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">Age</span>
+                            <span class="info-value"><i class="fas fa-calendar"></i> 23 ans</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">Formation</span>
+                            <span class="info-value"><i class="fas fa-graduation-cap"></i> ENSAM Meknes</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">Statut</span>
+                            <span class="info-value"><i class="fas fa-flask"></i> Doctorant</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Section -->
+    <section id="research" class="research section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Recherche</span>
+                <h2 class="section-title">Travail de These</h2>
+                <p class="section-subtitle">Digital Twin pour l'optimisation de l'energie solaire</p>
+            </div>
+            
+            <div class="research-content">
+                <div class="research-visual reveal-left">
+                    <div class="solar-animation">
+                        <div class="sun">
+                            <div class="sun-rays"></div>
+                        </div>
+                        <div class="solar-panel">
+                            <div class="panel-grid">
+                                <div class="panel-cell"></div>
+                                <div class="panel-cell"></div>
+                                <div class="panel-cell"></div>
+                                <div class="panel-cell"></div>
+                            </div>
+                        </div>
+                        <div class="data-flow">
+                            <div class="data-packet"></div>
+                            <div class="data-packet"></div>
+                            <div class="data-packet"></div>
+                        </div>
+                        <div class="digital-twin">
+                            <i class="fas fa-server"></i>
+                            <span>Digital Twin</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="research-details reveal-right">
+                    <div class="research-card">
+                        <h3>Objectifs de Recherche</h3>
+                        <p>
+                            Developper des jumeaux numeriques intelligents capables de simuler, 
+                            predire et optimiser les performances des installations solaires 
+                            en temps reel grace a l'IA et au machine learning.
+                        </p>
+                    </div>
+                    
+                    <div class="research-topics">
+                        <div class="topic-item">
+                            <div class="topic-icon">
+                                <i class="fas fa-solar-panel"></i>
+                            </div>
+                            <div class="topic-content">
+                                <h4>Modelisation Predictive</h4>
+                                <p>Prediction de la production solaire avec des modeles de deep learning</p>
+                            </div>
+                        </div>
+                        
+                        <div class="topic-item">
+                            <div class="topic-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="topic-content">
+                                <h4>Optimisation en Temps Reel</h4>
+                                <p>Algorithmes d'optimisation pour maximiser l'efficacite energetique</p>
+                            </div>
+                        </div>
+                        
+                        <div class="topic-item">
+                            <div class="topic-icon">
+                                <i class="fas fa-sync-alt"></i>
+                            </div>
+                            <div class="topic-content">
+                                <h4>Simulation Numerique</h4>
+                                <p>Simulation de scenarios pour la maintenance predictive</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Competences</span>
+                <h2 class="section-title">Expertise Technique</h2>
+                <p class="section-subtitle">Stack technologique complet pour l'IA et la Data Science</p>
+            </div>
+            
+            <div class="skills-grid">
+                <div class="skill-category reveal-up" data-delay="0">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3>Intelligence Artificielle</h3>
+                    </div>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <span class="skill-name">TensorFlow</span>
+                            <div class="skill-bar"><div class="skill-progress" data-width="90"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">PyTorch</span>
+                            <div class="skill-bar"><div class="skill-progress" data-width="85"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">LLM & RAG</span>
+                            <div class="skill-bar"><div class="skill-progress" data-width="88"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Computer Vision</span>
+                            <div class="skill-bar"><div class="skill-progress" data-width="82"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">LangChain</span>
+                            <div class="skill-bar"><div class="skill-progress" data-width="80"></div></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skill-category reveal-up" data-delay="100">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3>Programmation</h3>
+                    </div>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <span class="skill-name">Python</span>
+                            <div class="skill-bar"><div class="skill-progress" data-width="95"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">SQL</span>
+                            <div class="skill-bar"><div class="skill-progress" data-width="85"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">C / C++</span>
+                            <div class="skill-bar"><div class="skill-progress" data-width="70"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Java</span>
+                            <div class="skill-bar"><div class="skill-progress" data-width="65"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Flask</span>
+                            <div class="skill-bar"><div class="skill-progress" data-width="78"></div></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skill-category reveal-up" data-delay="200">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h3>Data Science</h3>
+                    </div>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <span class="skill-name">Pandas & NumPy</span>
+                            <div class="skill-bar"><div class="skill-progress" data-width="92"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Power BI</span>
+                            <div class="skill-bar"><div class="skill-progress" data-width="80"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Data Mining</span>
+                            <div class="skill-bar"><div class="skill-progress" data-width="85"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Big Data / Hadoop</span>
+                            <div class="skill-bar"><div class="skill-progress" data-width="70"></div></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skill-category reveal-up" data-delay="300">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h3>Outils & DevOps</h3>
+                    </div>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <span class="skill-name">Docker</span>
+                            <div class="skill-bar"><div class="skill-progress" data-width="75"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Git & GitHub</span>
+                            <div class="skill-bar"><div class="skill-progress" data-width="88"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Anaconda</span>
+                            <div class="skill-bar"><div class="skill-progress" data-width="90"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">MLOps</span>
+                            <div class="skill-bar"><div class="skill-progress" data-width="72"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tech-stack reveal-up">
+                <h3>Technologies utilisees</h3>
+                <div class="tech-cloud">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">TensorFlow</span>
+                    <span class="tech-tag">PyTorch</span>
+                    <span class="tech-tag">OpenCV</span>
+                    <span class="tech-tag">YOLO</span>
+                    <span class="tech-tag">Transformers</span>
+                    <span class="tech-tag">LangChain</span>
+                    <span class="tech-tag">HuggingFace</span>
+                    <span class="tech-tag">Pandas</span>
+                    <span class="tech-tag">NumPy</span>
+                    <span class="tech-tag">Scikit-learn</span>
+                    <span class="tech-tag">Docker</span>
+                    <span class="tech-tag">Git</span>
+                    <span class="tech-tag">Flask</span>
+                    <span class="tech-tag">SQL</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Experience</span>
+                <h2 class="section-title">Parcours Professionnel</h2>
+                <p class="section-subtitle">Stages et experiences en entreprise</p>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item reveal-left">
+                    <div class="timeline-marker">
+                        <div class="marker-pulse"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <div class="timeline-company">
+                                <img src="https://via.placeholder.com/50x50/1a365d/ffffff?text=CE" alt="Capgemini">
+                                <div>
+                                    <h3>Capgemini Engineering</h3>
+                                    <span class="timeline-role">Stage PFE - IA & Data Science</span>
+                                </div>
+                            </div>
+                            <span class="timeline-date">Fev 2025 - Juil 2025</span>
+                        </div>
+                        <div class="timeline-body">
+                            <p>
+                                Conception et developpement d'une plateforme IA pour la validation 
+                                technique automobile. Extraction automatique de documents techniques 
+                                et generation de cas de test avec LLMs.
+                            </p>
+                            <ul>
+                                <li>Extraction de donnees techniques avec NLP avance</li>
+                                <li>Chat intelligent metier avec RAG</li>
+                                <li>Generation automatique de plans de test Excel</li>
+                                <li>Optimisation du temps de 80%</li>
+                            </ul>
+                        </div>
+                        <div class="timeline-tags">
+                            <span>LLMs</span>
+                            <span>NLP</span>
+                            <span>RAG</span>
+                            <span>Python</span>
+                            <span>Agile</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item reveal-right">
+                    <div class="timeline-marker">
+                        <div class="marker-pulse"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <div class="timeline-company">
+                                <img src="https://via.placeholder.com/50x50/0ea5e9/ffffff?text=AI" alt="AI Inside">
+                                <div>
+                                    <h3>AI Inside Private</h3>
+                                    <span class="timeline-role">Stage PFA - Digitalisation Industrielle</span>
+                                </div>
+                            </div>
+                            <span class="timeline-date">Juil 2024 - Sept 2024</span>
+                        </div>
+                        <div class="timeline-body">
+                            <p>
+                                Developpement d'une plateforme MES cloud pour la digitalisation 
+                                des processus industriels avec communication temps reel.
+                            </p>
+                            <ul>
+                                <li>Programmation PLC via TIA Portal</li>
+                                <li>Communication temps reel avec Node-RED</li>
+                                <li>Application web pour supervision industrielle</li>
+                            </ul>
+                        </div>
+                        <div class="timeline-tags">
+                            <span>IoT</span>
+                            <span>Node-RED</span>
+                            <span>PLC</span>
+                            <span>MES</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item reveal-left">
+                    <div class="timeline-marker">
+                        <div class="marker-pulse"></div>
+                    </div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <div class="timeline-company">
+                                <img src="https://via.placeholder.com/50x50/64748b/ffffff?text=HU" alt="Hopital">
+                                <div>
+                                    <h3>Hopital Universitaire Hassan II</h3>
+                                    <span class="timeline-role">Stage d'initiation - Maintenance</span>
+                                </div>
+                            </div>
+                            <span class="timeline-date">Aout 2023 - Sept 2023</span>
+                        </div>
+                        <div class="timeline-body">
+                            <p>
+                                Division de l'Ingenierie et de la Maintenance - Premiere experience 
+                                dans les systemes electriques et la maintenance hospitaliere.
+                            </p>
+                            <ul>
+                                <li>Etude des groupes electrogenes</li>
+                                <li>Analyse des postes de transformation</li>
+                                <li>Maintenance preventive</li>
+                            </ul>
+                        </div>
+                        <div class="timeline-tags">
+                            <span>Maintenance</span>
+                            <span>Electrotechnique</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Projets</span>
+                <h2 class="section-title">Projets Realises</h2>
+                <p class="section-subtitle">Applications IA et Data Science</p>
+            </div>
+            
+            <div class="projects-filter">
+                <button class="filter-btn active" data-filter="all">Tous</button>
+                <button class="filter-btn" data-filter="ai">IA / ML</button>
+                <button class="filter-btn" data-filter="vision">Computer Vision</button>
+                <button class="filter-btn" data-filter="nlp">NLP</button>
+                <button class="filter-btn" data-filter="iot">IoT</button>
+            </div>
+            
+            <div class="projects-grid">
+                <!-- Project 1: Image Prompt Segmentation -->
+                <div class="project-card" data-category="vision ai">
+                    <div class="project-image-wrapper">
+                        <img src="../assets/images/prompt_bridge.png" alt="Image Prompt Segmentation" class="project-image">
+                        <div class="project-overlay">
+                            <a href="https://images-segmmentation-prompt.readthedocs.io/fr/latest/index.html" target="_blank" class="project-link-btn">
+                                <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3>Image Prompt Segmentation</h3>
+                            <span class="project-badge">NLP + Vision</span>
+                        </div>
+                        <p class="project-description">
+                            Pont intelligent entre requete textuelle et segmentation d'image. 
+                            Utilise des Foundation Models pour interpreter les prompts et guider 
+                            la segmentation automatique.
+                        </p>
+                        <div class="project-tech">
+                            <span>PyTorch</span>
+                            <span>Transformers</span>
+                            <span>SAM</span>
+                            <span>LLMs</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://images-segmmentation-prompt.readthedocs.io/fr/latest/index.html" target="_blank">
+                                <i class="fas fa-book"></i> Documentation
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2: Machine Recognition -->
+                <div class="project-card" data-category="vision">
+                    <div class="project-image-wrapper">
+                        <img src="../assets/images/machine%20detect.png" alt="Machine Recognition" class="project-image">
+                        <div class="project-overlay">
+                            <a href="https://github.com/imadmaalouf02/Machine-detection-and-classification" target="_blank" class="project-link-btn">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3>Machine Recognition</h3>
+                            <span class="project-badge">YOLOv8</span>
+                        </div>
+                        <p class="project-description">
+                            Application de reconnaissance des machines mecaniques d'usinage 
+                            pour aider les etudiants ENSAM. Modele YOLOv8 deploye sur mobile.
+                        </p>
+                        <div class="project-tech">
+                            <span>YOLOv8</span>
+                            <span>Roboflow</span>
+                            <span>Kivy</span>
+                            <span>OpenCV</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/imadmaalouf02/Machine-detection-and-classification" target="_blank">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3: RAG Application -->
+                <div class="project-card" data-category="nlp ai">
+                    <div class="project-image-wrapper">
+                        <div class="project-placeholder">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <div class="project-overlay">
+                            <a href="https://github.com/imadmaalouf02/RAG" target="_blank" class="project-link-btn">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3>RAG Application</h3>
+                            <span class="project-badge">NLP</span>
+                        </div>
+                        <p class="project-description">
+                            Application de Retrieval-Augmented Generation pour interroger 
+                            des documents PDF avec OCR, embeddings et chat contextuel.
+                        </p>
+                        <div class="project-tech">
+                            <span>LangChain</span>
+                            <span>Vector DB</span>
+                            <span>Embeddings</span>
+                            <span>OCR</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/imadmaalouf02/RAG" target="_blank">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                            <a href="https://rag.readthedocs.io/en/latest/index.html#" target="_blank">
+                                <i class="fas fa-book"></i> Docs
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 4: SWEM -->
+                <div class="project-card" data-category="iot ai">
+                    <div class="project-image-wrapper">
+                        <div class="project-placeholder">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="project-overlay">
+                            <a href="https://github.com/imadmaalouf02/Ammoniac_simulation-and-Detection_EPI-App" target="_blank" class="project-link-btn">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3>SWEM Monitor</h3>
+                            <span class="project-badge">IoT + Vision</span>
+                        </div>
+                        <p class="project-description">
+                            Systeme intelligent de surveillance des dangers environnementaux 
+                            avec capteurs IoT et detection de gaz (ammoniac) pour l'industrie.
+                        </p>
+                        <div class="project-tech">
+                            <span>IoT</span>
+                            <span>Simulation</span>
+                            <span>Computer Vision</span>
+                            <span>Python</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/imadmaalouf02/Ammoniac_simulation-and-Detection_EPI-App" target="_blank">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 5: Smart Lamp -->
+                <div class="project-card" data-category="iot">
+                    <div class="project-image-wrapper">
+                        <div class="project-placeholder">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <div class="project-overlay">
+                            <a href="https://www.linkedin.com/posts/imad-maalouf-811b25264_the-smart-lamp-is-a-collaborative-project-activity-7163677680284999680-rDSv/" target="_blank" class="project-link-btn">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3>Lampe Intelligente</h3>
+                            <span class="project-badge">Mecatronique</span>
+                        </div>
+                        <p class="project-description">
+                            Systeme mecatronique avec detection de mouvement, deplacement 
+                            automatique et ajustement intelligent de l'eclairage.
+                        </p>
+                        <div class="project-tech">
+                            <span>Arduino</span>
+                            <span>Capteurs</span>
+                            <span>Automation</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://www.linkedin.com/posts/imad-maalouf-811b25264_the-smart-lamp-is-a-collaborative-project-activity-7163677680284999680-rDSv/" target="_blank">
+                                <i class="fab fa-linkedin"></i> LinkedIn
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section id="publications" class="publications section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Publications</span>
+                <h2 class="section-title">Travaux Academiques</h2>
+                <p class="section-subtitle">Publications et contributions scientifiques</p>
+            </div>
+            
+            <div class="publications-grid">
+                <div class="publication-card reveal-up">
+                    <div class="pub-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <div class="pub-content">
+                        <h3>Conference COCIA 2024</h3>
+                        <p class="pub-venue">Springer - Lecture Notes in Networks and Systems</p>
+                        <p class="pub-description">
+                            Contribution aux travaux sur les objets connectes et l'intelligence artificielle 
+                            presentee a la conference internationale COCIA 2024 a Casablanca.
+                        </p>
+                        <a href="https://link.springer.com/content/pdf/10.1007/978-3-031-70411-6.pdf" target="_blank" class="pub-link">
+                            <i class="fas fa-external-link-alt"></i> Voir la publication
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="publication-card reveal-up" data-delay="100">
+                    <div class="pub-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="pub-content">
+                        <h3>Memoire de These (en cours)</h3>
+                        <p class="pub-venue">ENSAM Meknes</p>
+                        <p class="pub-description">
+                            Digital Twin pour l'optimisation des systemes d'energie solaire : 
+                            modelisation predictive et optimisation par intelligence artificielle.
+                        </p>
+                        <span class="pub-status">En preparation</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="certifications section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Certifications</span>
+                <h2 class="section-title">Certificats Professionnels</h2>
+                <p class="section-subtitle">Formations et certifications continues</p>
+            </div>
+            
+            <div class="cert-grid">
+                <a href="https://www.coursera.org/account/accomplishments/verify/PNGZCVKK2EDX" target="_blank" class="cert-item reveal-up">
+                    <div class="cert-logo">
+                        <i class="fab fa-coursera"></i>
+                    </div>
+                    <div class="cert-info">
+                        <h4>Deep Learning with PyTorch</h4>
+                        <span>Image Segmentation</span>
+                    </div>
+                    <i class="fas fa-certificate cert-badge"></i>
+                </a>
+                
+                <a href="https://learn.365datascience.com/certificates/DD-940DF06F34/" target="_blank" class="cert-item reveal-up" data-delay="50">
+                    <div class="cert-logo">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <div class="cert-info">
+                        <h4>Data Scientist</h4>
+                        <span>365 Data Science</span>
+                    </div>
+                    <i class="fas fa-certificate cert-badge"></i>
+                </a>
+                
+                <a href="https://learn.365datascience.com/certificates/DD-A127E8D270/" target="_blank" class="cert-item reveal-up" data-delay="100">
+                    <div class="cert-logo">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="cert-info">
+                        <h4>Data Analyst</h4>
+                        <span>365 Data Science</span>
+                    </div>
+                    <i class="fas fa-certificate cert-badge"></i>
+                </a>
+                
+                <a href="https://www.kaggle.com/learn/certification/maaloufimad/data-visualization" target="_blank" class="cert-item reveal-up" data-delay="150">
+                    <div class="cert-logo">
+                        <i class="fab fa-kaggle"></i>
+                    </div>
+                    <div class="cert-info">
+                        <h4>Data Visualization</h4>
+                        <span>Kaggle</span>
+                    </div>
+                    <i class="fas fa-certificate cert-badge"></i>
+                </a>
+                
+                <a href="https://www.coursera.org/account/accomplishments/verify/3MHLABQ3ZZ6C" target="_blank" class="cert-item reveal-up" data-delay="200">
+                    <div class="cert-logo">
+                        <i class="fab fa-python"></i>
+                    </div>
+                    <div class="cert-info">
+                        <h4>Python for Data Science, AI & Development</h4>
+                        <span>Coursera</span>
+                    </div>
+                    <i class="fas fa-certificate cert-badge"></i>
+                </a>
+                
+                <a href="https://openclassrooms.com/fr/course-certificates/4477916086" target="_blank" class="cert-item reveal-up" data-delay="250">
+                    <div class="cert-logo">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <div class="cert-info">
+                        <h4>Deep Learning</h4>
+                        <span>OpenClassrooms</span>
+                    </div>
+                    <i class="fas fa-certificate cert-badge"></i>
+                </a>
+                
+                <a href="https://alison.com/certification/check/2y10Tm5wPNR25DRi5lSdps5afO4ELg0Nvabpk8cOs9hGbxyK7roaHZLn" target="_blank" class="cert-item reveal-up" data-delay="300">
+                    <div class="cert-logo">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="cert-info">
+                        <h4>Diploma in Fundamentals of AI</h4>
+                        <span>Alison</span>
+                    </div>
+                    <i class="fas fa-certificate cert-badge"></i>
+                </a>
+                
+                <a href="https://alison.com/certification/check/fbb5b269e8" target="_blank" class="cert-item reveal-up" data-delay="350">
+                    <div class="cert-logo">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <div class="cert-info">
+                        <h4>Diploma in Project Management</h4>
+                        <span>Alison</span>
+                    </div>
+                    <i class="fas fa-certificate cert-badge"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Contact</span>
+                <h2 class="section-title">Travaillons Ensemble</h2>
+                <p class="section-subtitle">Ouvert aux collaborations et opportunites</p>
+            </div>
+            
+            <div class="contact-grid">
+                <div class="contact-info reveal-left">
+                    <div class="contact-card">
+                        <h3>Informations de Contact</h3>
+                        <p class="contact-intro">
+                            N'hesitez pas a me contacter pour toute question, collaboration 
+                            ou opportunite dans le domaine de l'IA et la Data Science.
+                        </p>
+                        
+                        <div class="contact-items">
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="contact-details">
+                                    <span class="contact-label">Email</span>
+                                    <a href="mailto:imadmaalouf02@gmail.com">imadmaalouf02@gmail.com</a>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <div class="contact-details">
+                                    <span class="contact-label">Telephone</span>
+                                    <a href="tel:+212642781650">+212 642 781 650</a>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="contact-details">
+                                    <span class="contact-label">Localisation</span>
+                                    <span>Meknes, Maroc</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="social-profiles">
+                            <h4>Retrouvez-moi sur</h4>
+                            <div class="social-row">
+                                <a href="https://www.linkedin.com/in/imad-maalouf" target="_blank" class="social-profile">
+                                    <i class="fab fa-linkedin"></i>
+                                    <span>LinkedIn</span>
+                                </a>
+                                <a href="https://github.com/imadmaalouf02" target="_blank" class="social-profile">
+                                    <i class="fab fa-github"></i>
+                                    <span>GitHub</span>
+                                </a>
+                                <a href="https://huggingface.co/MAALOUFimad02" target="_blank" class="social-profile">
+                                    <i class="fas fa-face-smile"></i>
+                                    <span>HuggingFace</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form-wrapper reveal-right">
+                    <form class="contact-form" id="contactForm">
+                        <h3>Envoyer un Message</h3>
+                        
+                        <div class="form-group">
+                            <label for="name">Nom</label>
+                            <input type="text" id="name" name="name" required placeholder="Votre nom">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required placeholder="votre@email.com">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Sujet</label>
+                            <input type="text" id="subject" name="subject" required placeholder="Sujet du message">
+                            <i class="fas fa-tag"></i>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required placeholder="Votre message..."></textarea>
+                            <i class="fas fa-comment"></i>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-full">
+                            <span>Envoyer le message</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-bracket">[</span>
+                    <span class="logo-text">IM</span>
+                    <span class="logo-bracket">]</span>
+                    <p>Imad Maalouf - Doctorant IA & Data Science</p>
+                </div>
+                
+                <div class="footer-links">
+                    <a href="#about">A propos</a>
+                    <a href="#research">Recherche</a>
+                    <a href="#projects">Projets</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                
+                <div class="footer-social">
+                    <a href="https://www.linkedin.com/in/imad-maalouf" target="_blank" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/imadmaalouf02" target="_blank" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://huggingface.co/MAALOUFimad02" target="_blank" aria-label="HuggingFace">
+                        <i class="fas fa-face-smile"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Imad Maalouf. Tous droits reserves.</p>
+                <p class="footer-credit">Concu et developpe avec passion</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Retour en haut">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="../js/main.js"></script>
+    <script src="../js/animations.js"></script>
 </body>
 </html>
